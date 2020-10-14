@@ -20,6 +20,7 @@ public class DefaultApi {
 
     @RequestMapping("/welcome")
     public String welcome(){
+        logger.info("Inside welcome method");
         return "Hey!! Welcome to Spring!! ";
     }
 
