@@ -7,10 +7,17 @@ package com.mayank.learning.elasticsearch.repository;
  */
 
 import com.mayank.learning.elasticsearch.entity.Car;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+
 @Repository
 public interface CarRepository extends ElasticsearchRepository<Car, String> {
+
+    Page<Car> findByBrandAndColor(String brand, String color, Pageable pageable);
+    Page<Car> findByReleaseDateAfter(LocalDate date, Pageable pageable);
 
 }
