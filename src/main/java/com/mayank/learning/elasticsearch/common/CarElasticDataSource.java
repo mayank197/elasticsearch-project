@@ -8,7 +8,7 @@ package com.mayank.learning.elasticsearch.common;
 */
 
 import com.mayank.learning.elasticsearch.entity.Car;
-import com.mayank.learning.elasticsearch.repository.CarRepository;
+import com.mayank.learning.elasticsearch.repository.*;
 import com.mayank.learning.elasticsearch.service.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
