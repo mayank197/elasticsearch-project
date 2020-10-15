@@ -1,4 +1,4 @@
-package repository;
+package com.mayank.learning.elasticsearch.repository;
 
 /*
     Class for accessing and modifying data in Elastic Search

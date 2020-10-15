@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.mayank.learning.elasticsearch.*")
+@ComponentScan(basePackages = "com.mayank.learning.elasticsearch")
 public class ElasticSearchApplication {
 
 	public static void main(String[] args) {
