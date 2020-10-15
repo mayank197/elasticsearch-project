@@ -49,7 +49,7 @@ public class CarElasticDataSource {
         logger.info("Delete Functionality ended with response {}", response);
 
         List<Car> cars = new ArrayList<>();
-        IntStream.range(1, 10000).forEach(i-> cars.add(carService.generateCar()));
+        IntStream.rangeClosed(1, 10000).forEach(i-> cars.add(carService.generateCar()));
 
         carRepository.saveAll(cars);
         logger.info("Saved {} cars on Elastic Search", carRepository.count());

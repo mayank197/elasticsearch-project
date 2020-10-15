@@ -2,6 +2,14 @@ server:
   port: 8011
 
 spring:
+  elasticsearch:
+    rest:
+      connection-timeout: 120s
+      read-timeout: 120s
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
   main:
     banner-mode: OFF
   jackson:
@@ -20,4 +28,3 @@ logging:
     file: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
   file:
     name: log/elasticsearch-project.log
-

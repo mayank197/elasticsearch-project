@@ -70,6 +70,14 @@ public class Car {
         this.type = type;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Engine getEngine() {
         return engine;
     }

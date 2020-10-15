@@ -14,10 +14,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import repository.CarRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class CarController {
 
     private static final Logger logger = LoggerFactory.getLogger(CarController.class);
+
+    @Autowired
+    private CarRepository carRepository;
 
     @Autowired
     private CarService carService;
@@ -50,6 +56,28 @@ public class CarController {
             cars.add(carService.generateCar());
         }
         return cars;
+    }
+
+    @GetMapping(value = "/count")
+    public String countCars(){
+        return "There are " +carRepository.count() + " cars";
+    }
+
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String saveCar(@RequestBody Car car){
+         String id = carRepository.save(car).getId();
+         return "Saved with Id "+id;
+    }
+
+    @GetMapping(value = "/{id}")
+    public Car getCar(@PathVariable("id") String carId){
+        return carRepository.findById(carId).orElse(null);
+    }
+
+    @PutMapping(value = "/{id}")
+    public String updateCar(@PathVariable("id") String carId, @RequestBody Car updatedCar){
+        updatedCar.setId(carId);
+        return "Updated Car with Id " +carRepository.save(updatedCar).getId();
     }
 
 }
