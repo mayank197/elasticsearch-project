@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalTime;
+
 @RestController
 @RequestMapping("/api")
 public class DefaultRestApi {
@@ -24,7 +26,12 @@ public class DefaultRestApi {
     @RequestMapping("/welcome")
     public String welcome(){
         logger.info("Inside welcome method");
-        return "Hey!! Welcome to Spring!! ";
+        return "Hey!! Welcome to Spring!!";
+    }
+
+    @GetMapping(value = "/time")
+    public String time() {
+        return LocalTime.now().toString();
     }
 
     @GetMapping(value = "/header-one")
