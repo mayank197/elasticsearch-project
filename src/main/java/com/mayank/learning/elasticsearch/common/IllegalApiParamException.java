@@ -9,8 +9,6 @@ package com.mayank.learning.elasticsearch.common;
 
 public class IllegalApiParamException extends RuntimeException {
 
-
-
     public IllegalApiParamException(String message) {
         super(message);
     }
